@@ -1,0 +1,16 @@
+# Snakemake internal files
+.snakemake/
+
+# Generated workflow outputs
+mc_data_comparison/
+
+# ROOT output files
+*.root
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+__pycache__/

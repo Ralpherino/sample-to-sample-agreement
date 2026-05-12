@@ -1,0 +1,19 @@
+sample1_file: "sample1.root"
+sample2_file: "sample2.root"
+
+sample1_label: "MC 13266069"
+sample2_label: "MC 11266009"
+
+sample1_tree: "DecayTree"
+sample2_tree: "DecayTree"
+
+normalize: true
+
+branches:
+  B_ETA:
+    bins: 150
+
+cuts:
+  noCut: ""
+  eta_2_5: "B_ETA > 2.0 && B_ETA < 5.0"
+  
