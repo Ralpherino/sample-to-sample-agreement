@@ -1,11 +1,11 @@
-sample1_file: "sample1.root"
-sample2_file: "sample2.root"
+sample1_file: "/afs/cern.ch/work/r/relhage/private/work/R_Ds/BDT/BDT_Bs/output/Input_tmva_3pi.root"
+sample2_file: "/afs/cern.ch/work/r/relhage/private/work/R_Ds/BDT/BDT_Bs/output/Input_tmva_Ds.root"
 
-sample1_label: "MC 13266069"
-sample2_label: "MC 11266009"
+sample1_label: "MVA 3pi input"
+sample2_label: "MVA Ds input"
 
-sample1_tree: "DecayTree"
-sample2_tree: "DecayTree"
+sample1_tree: "TreeSig_SIG"
+sample2_tree: "TreeSig_SIG"
 
 normalize: true
 

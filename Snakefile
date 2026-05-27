@@ -21,6 +21,10 @@ rule all:
             "mc_data_comparison/plots/{branch}/{cut}/{branch}_MC_DATA_{cut}.png",
             branch=BRANCHES,
             cut=CUTS
+        ),
+        expand(
+            "mc_data_comparison/counts/{cut}.csv",
+            cut=CUTS
         )
 
 
@@ -128,5 +132,34 @@ rule plot_mc_data:
             "{params.cut}",
             {params.normalize},
             "{output.png}"
+        )'
+        """
+
+
+rule count_events:
+    output:
+        "mc_data_comparison/counts/{cut}.csv"
+    params:
+        sample1_file=SAMPLE1_FILE,
+        sample2_file=SAMPLE2_FILE,
+        sample1_tree=SAMPLE1_TREE,
+        sample2_tree=SAMPLE2_TREE,
+        sample1_label=SAMPLE1_LABEL,
+        sample2_label=SAMPLE2_LABEL,
+        cut=lambda wildcards: config["cuts"][wildcards.cut]
+    shell:
+        r"""
+        mkdir -p $(dirname {output})
+
+        root -l -b -q 'scripts/count_events.C(
+            "{params.sample1_file}",
+            "{params.sample2_file}",
+            "{params.sample1_tree}",
+            "{params.sample2_tree}",
+            "{params.sample1_label}",
+            "{params.sample2_label}",
+            "{wildcards.cut}",
+            "{params.cut}",
+            "{output}"
         )'
         """
